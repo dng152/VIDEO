@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Responsive Video Slideshow with Logo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-image: url('background.png');
+      background-size: cover; /* Cover the entire background */
+      background-repeat: no-repeat; /* Do not repeat the background image */
+      height: 100vh; /* Set height to 100% of viewport height */
+      overflow: hidden; /* Prevent vertical scroll bars */
+    }
+
+    .tv-container {
+            position: relative;
+            width: 80%; /* Adjust TV container width for responsiveness */
+            max-width: 800px; /* Maximum width for larger screens */
+            margin: auto;
+            background-color: #333; /* TV frame color */
+            border: 20px solid #222; /* TV bezel color */
+            border-radius: 20px; /* TV frame curvature */
+            overflow: hidden;
+        }
+
+    .tv-screen {
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 aspect ratio (9 / 16 * 100) */
+      position: relative;
+    }
+
+    video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensure video fills screen */
+    }
+
+    .logo {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      display: none; /* Initially hide the logo */
+    }
+
+    .controls {
+            position: fixed;
+            bottom: 20px; /* Adjust the distance from the bottom */
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 20px;
+            padding: 10px;
+            z-index: 1000; /* Ensure controls appear above other content */
+        }
+
+        .controls button {
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                padding: 8px;
+                margin: 0 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+            .controls button:hover {
+                background-color: #0056b3;
+            }
+  </style>
+</head>
+
+<body>
+  <div class="tv-container">
+    <div class="tv-screen">
+      <!-- Video Slides (Initial Hidden) -->
+      <video id="video1" muted style="display: none;" playsinline> <!-- Video Singapore #1: Food Court -->
+        <source src="video1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+
+
+       <a href="https://drive.google.com/drive/u/1/folders/1U7LvEqo-hkgvKP-rYS5K3w113SZxP9Rw" target="_blank"> <!-- Sinh nhật Dũng 20 tuổi vs Mun -->
+      <video id="video2" muted style="display: none;" playsinline>
+        <source src="video2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+
+      <video id="video3" muted style="display: none;" playsinline>
+        <source src="video3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <video id="video4" muted style="display: none;" playsinline>
+        <source src="video4.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <video id="video5" muted style="display: none;" playsinline>
+        <source src="video5.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <video id="video6" muted style="display: none;" playsinline>
+        <source src="video6.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <video id="video7" muted style="display: none;" playsinline>
+        <source src="video7.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <a href="https://drive.google.com/file/d/1icXKW_Egp1QJr5Gi7sxCyWv68Xw6OYVz/view" target="_blank"> <!-- Vịnh Lan Hạ -->
+      <video id="video8" muted style="display: none;" playsinline>
+        <source src="video8.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <a href="https://drive.google.com/file/d/1osXw43Z8Kxn8JXikU558PWwJjiW5a4Qv/view" target="_blank"> <!-- Ảnh kỷ yếu -->
+       <video id="video9" muted  playsinline>
+         <source src="video9.mp4" type="video/mp4">
+         Your browser does not support the video tag.
+       </video>
+      </a>
+
+      <video id="video10" muted style="display: none;" playsinline> <!-- Bangkok Street -->
+        <source src="video10.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <a href="https://drive.google.com/drive/u/1/folders/1puU6O2sFhMDT_TMpO3yrQbr3zefSdBCv" target="_blank"> <!-- Đà Lạt -->
+       <video id="video11" muted  playsinline>
+         <source src="video11.mp4" type="video/mp4">
+         Your browser does not support the video tag.
+       </video>
+      </a>
+
+    <a href="https://drive.google.com/drive/u/2/folders/1oc8i4XruqIrmUmFzBiizRt8l6po2RHK4" target="_blank"> <!-- Mình thử diễn drama -->
+       <video id="video12" muted  playsinline>
+         <source src="video12.mp4" type="video/mp4">
+         Your browser does not support the video tag.
+       </video>
+      </a>
+
+         <a href="https://drive.google.com/drive/u/1/folders/12nNHBIVs2WcUNCGczhym5TSrTAcHRgJd" target="_blank"> <!-- Mình đi chơi với Phanh -->
+       <video id="video13" muted  playsinline>
+         <source src="video13.mp4" type="video/mp4">
+         Your browser does not support the video tag.
+       </video>
+      </a>
+
+
+
+
+      <!-- Add more video elements as needed -->
+
+      <!-- GIF Logo -->
+      <img src="logo.gif" class="logo" width="100" height="100" alt="Logo">
+    </div>
+
+    <!-- Playback Controls -->
+    <div class="controls" id="controls">
+      <button id="prevButton" onclick="prevSlide()"><i class="fas fa-backward"></i></button>
+      <button id="playPauseButton" onclick="togglePlayPause()"><i class="fas fa-play"></i></button>
+      <button id="muteButton" onclick="toggleMute()"><i class="fas fa-volume-up"></i></button>
+      <button id="nextButton" onclick="nextSlide()"><i class="fas fa-forward"></i></button>
+    </div>
+  </div>
+
+  <script>
+  let videoIds = ['video1', 'video2','video3', 'video4','video5', 'video6','video7', 'video8','video9', 'video10','video11', 'video12', 'video13']; // Add more video IDs as needed
+    let currentIndex = 0;
+    let isPlaying = true;
+    let isMuted = true; // Initially muted
+    const logoElement = document.querySelector('.logo');
+    const muteButton = document.getElementById('muteButton');
+
+    function showCurrentSlide() {
+      const currentVideoId = videoIds[currentIndex];
+      videoIds.forEach((videoId) => {
+        const videoElement = document.getElementById(videoId);
+        if (videoId === currentVideoId) {
+          videoElement.style.display = 'block';
+          if (isPlaying) {
+            videoElement.play();
+            logoElement.style.display = 'block'; // Show logo when video starts
+          }
+          // Set mute/unmute state based on current status
+          videoElement.muted = isMuted;
+          muteButton.innerHTML = isMuted ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-up"></i>';
+        } else {
+          videoElement.style.display = 'none';
+          videoElement.pause();
+          videoElement.currentTime = 0;
+        }
+      });
+    }
+
+    function togglePlayPause() {
+      const currentVideoId = videoIds[currentIndex];
+      const currentVideoElement = document.getElementById(currentVideoId);
+      if (currentVideoElement.paused) {
+        currentVideoElement.play();
+        isPlaying = true;
+        logoElement.style.display = 'block'; // Show logo when video resumes
+        document.getElementById('playPauseButton').innerHTML = '<i class="fas fa-pause"></i>';
+      } else {
+        currentVideoElement.pause();
+        isPlaying = false;
+        logoElement.style.display = 'none'; // Hide logo when video pauses
+        document.getElementById('playPauseButton').innerHTML = '<i class="fas fa-play"></i>';
+      }
+    }
+
+    function toggleMute() {
+      const currentVideoId = videoIds[currentIndex];
+      const currentVideoElement = document.getElementById(currentVideoId);
+      isMuted = !isMuted; // Toggle mute state
+      currentVideoElement.muted = isMuted;
+      muteButton.innerHTML = isMuted ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-up"></i>';
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % videoIds.length;
+      showCurrentSlide();
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + videoIds.length) % videoIds.length;
+      showCurrentSlide();
+    }
+
+    // Auto-advance to next slide when current video ends
+    videoIds.forEach((videoId) => {
+      const videoElement = document.getElementById(videoId);
+      videoElement.addEventListener('ended', () => {
+        currentIndex = (currentIndex + 1) % videoIds.length;
+        showCurrentSlide();
+      });
+    });
+
+    function shuffleArray(array) {
+         for (let i = array.length - 1; i > 0; i--) {
+           const j = Math.floor(Math.random() * (i + 1));
+           [array[i], array[j]] = [array[j], array[i]];
+         }
+         return array;
+       }
+
+       // Shuffle video order initially and show first slide
+       videoIds = shuffleArray(videoIds);
+       showCurrentSlide();
+  </script>
+</body>
+
+</html>
